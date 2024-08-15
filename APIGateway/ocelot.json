@@ -1,0 +1,71 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/Auth/login",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Auth/login",
+      "UpstreamHttpMethod": [ "Post" ],
+      "SwaggerKey": "Auth"
+    },
+    {
+      "DownstreamPathTemplate": "/api/Auth/list",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7002
+        }
+      ],
+      "UpstreamPathTemplate": "/api/Auth/list",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "Auth"
+    },
+    {
+      "DownstreamPathTemplate": "/api/order/list",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7003
+        }
+      ],
+      "UpstreamPathTemplate": "/api/order/list",
+      "UpstreamHttpMethod": [ "Get" ],
+      "SwaggerKey": "order"
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7777"
+  },
+  "SwaggerEndPoints": [
+
+    {
+      "Key": "Auth",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "Auth.API",
+          "Version": "1.0",
+          "Url": "https://localhost:7002/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "Key": "order",
+      "TransformByOcelotConfig": true,
+      "Config": [
+        {
+          "Name": "order.API",
+          "Version": "1.0",
+          "Url": "https://localhost:7003/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ]
+}
