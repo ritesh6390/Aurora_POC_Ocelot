@@ -1,3 +1,5 @@
+using OfficeOpenXml;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -21,5 +23,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
 app.Run();
